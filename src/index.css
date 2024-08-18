@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto Mono", sans-serif;
+  color: #333;
+  font-weight: 400;
+  background-color: #fafafa;
+  min-height: 100vh;
+  padding: 2rem;
+  padding-bottom: 6rem;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+.header {
+  align-self: stretch;
+}
+.header h1 {
+  color: #d35400;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+  padding: 0 2rem;
+  border-top: 2px solid #d35400;
+  border-bottom: 2px solid #d35400;
+}
+
+.header h1::before,
+.header h1::after {
+  content: "";
+  display: inline-block;
+  width: 50px;
+  height: 2px;
+  background-color: #d35400;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.header h1::before {
+  left: 0;
+  margin-left: -70px;
+}
+
+.header h1::after {
+  right: 0;
+  margin-right: -70px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.menu h2 {
+  display: inline-block;
+  padding: 0.5rem 0;
+  border-top: 2px solid #d35400;
+  border-bottom: 2px solid #d35400;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+.menu > p {
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 1.8;
+  width: 75%;
+  color: #666;
+}
+
+.pizzas {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  gap: 3rem;
+}
+
+.pizza {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.pizza img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.pizza h3 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #d35400;
+}
+
+.pizza p {
+  font-size: 1.6rem;
+  font-weight: 300;
+  font-style: italic;
+  color: #777;
+}
+
+.pizza span {
+  display: block;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.pizza.sold-out {
+  color: #888;
+}
+
+.pizza.sold-out img {
+  filter: grayscale(100%);
+  opacity: 0.6;
+}
+
+.footer {
+  font-size: 1.6rem;
+  text-align: center;
+  color: #555;
+  margin-top: auto;
+}
+
+.order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.btn {
+  color: #fff;
+  background-color: #d35400;
+  font-family: inherit;
+  border: none;
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 1.4rem 3.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  background-color: #e67e22;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 4rem;
+  }
+
+  .menu h2 {
+    font-size: 2.6rem;
+  }
+
+  .pizza {
+    gap: 1.6rem;
+  }
+
+  .pizza h3 {
+    font-size: 2rem;
+  }
+
+  .pizza p {
+    font-size: 1.4rem;
+  }
+
+  .pizza span {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    font-size: 1.4rem;
+    padding: 1.2rem 2.8rem;
+  }
+}
