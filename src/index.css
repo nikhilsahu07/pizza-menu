@@ -32,6 +32,7 @@ body {
 .header {
   align-self: stretch;
 }
+
 .header h1 {
   color: #d35400;
   text-transform: uppercase;
@@ -97,45 +98,62 @@ body {
 .pizzas {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(24rem, 1fr)
+  ); /* Automatically adjust columns */
+  gap: 3rem; /* Spacing between the grid items */
 }
 
 .pizza {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 2rem;
+  gap: 1.6rem;
   padding: 2rem;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  width: 100%; /* Ensure the pizza div takes full column width */
+}
+
+.pizza:hover {
+  background-color: #f0f0f0; /* Slight color change on hover */
+  transform: translateY(-5px); /* Subtle lift effect on hover */
 }
 
 .pizza img {
-  width: 100%;
-  height: auto;
+  width: 12rem;
+  aspect-ratio: 1;
   border-radius: 8px;
 }
 
 .pizza h3 {
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 600;
   color: #d35400;
+  text-align: center;
 }
 
 .pizza p {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 300;
   font-style: italic;
   color: #777;
+  text-align: center;
+  margin-bottom: auto;
 }
 
-.pizza span {
-  display: block;
+.pizza span.price {
   font-size: 1.8rem;
+  font-weight: 600;
   color: #333;
+  background-color: #edc84b;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .pizza.sold-out {
