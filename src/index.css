@@ -102,7 +102,7 @@ body {
     auto-fill,
     minmax(24rem, 1fr)
   ); /* Automatically adjust columns */
-  gap: 3rem; /* Spacing between the grid items */
+  gap: 0.5rem; /* Spacing between the grid items */
 }
 
 .pizza {
