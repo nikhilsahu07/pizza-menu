@@ -77,21 +77,27 @@ function Header() {
 }
 
 function Menu() {
+  const pizzas = pizzaData;
+  // const pizzas = [];
+
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <ul className="pizzas">
-        {pizzaData.map((pizza) => (
-          <Pizza pizzaObj={pizza} />
-          // <Pizza
-          //   name={pizza.name}
-          //   ingredients={pizza.ingredients}
-          //   photoName={pizza.photoName}
-          //   price={pizza.price}
-          //   soldOut={pizza.soldOut}
-          // />
-        ))}
-      </ul>
+      {pizzas && (
+        <ul className="pizzas">
+          {pizzas.map((pizza) => (
+            <Pizza pizzaObj={pizza} key={pizza.name} />
+          ))}
+        </ul>
+      )}
+
+      {/* <Pizza
+      //   name={pizza.name}
+      //   ingredients={pizza.ingredients}
+      //   photoName={pizza.photoName}
+      //   price={pizza.price}
+      //   soldOut={pizza.soldOut}
+      // /> */}
 
       {/*<Pizza
         name="Pizza Spinaci"
@@ -123,10 +129,19 @@ function Pizza(props) {
 
 function Footer() {
   let time = new Date().getHours();
+  const openHour = 10;
+  const closeHour = 21;
+  const isOpen = time >= openHour && time <= closeHour;
   return (
     <footer className="footer">
-      🕰️{new Date().toLocaleTimeString()}🌟We're currently{" "}
-      {time >= 10 && time <= 21 ? `` : `not`} open.🎉
+      {isOpen && (
+        <div className="order">
+          <p>
+            We're currently Open. Visit us or Order Online till {closeHour}:00
+          </p>
+          <button className="btn">Order Now</button>
+        </div>
+      )}
     </footer>
   );
 
