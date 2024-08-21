@@ -122,14 +122,15 @@ function Menu() {
   );
 }
 
-function Pizza(props) {
-  if (props.pizzaObj.soldOut) return null;
+function Pizza({ pizzaObj }) {
+  if (pizzaObj.soldOut) return null;
+
   return (
     <li className="pizza">
-      <h3>{props.pizzaObj.name}</h3>
-      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
-      <p>{props.pizzaObj.ingredients}</p>
-      <span className="price">${props.pizzaObj.price}</span>
+      <h3>{pizzaObj.name}</h3>
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
+      <p>{pizzaObj.ingredients}</p>
+      <span className="price">${pizzaObj.price}</span>
     </li>
   );
 }
@@ -142,12 +143,7 @@ function Footer() {
   return (
     <footer className="footer">
       {isOpen ? (
-        <div className="order">
-          <p>
-            We're currently Open. Visit us or Order Online till {closeHour}:00
-          </p>
-          <button className="btn">Order Now</button>
-        </div>
+        <Order closeHour={closeHour} openHour={openHour} />
       ) : (
         <p>
           We'll happy to serve you between {openHour}:00 and {closeHour}:00 :){" "}
@@ -161,6 +157,20 @@ function Footer() {
   //   null,
   //   `We're currently  ${time >= 10 && time <= 21 ? `` : `not`} open.🎉`
   // );
+}
+
+//destructing props directly
+function Order({ openHour, closeHour }) {
+  return (
+    <div className="order">
+      <p>
+        We're currently Open. Visit us or Order Online between {openHour}:00 and{" "}
+        {closeHour}
+        :00
+      </p>
+      <button className="btn">Order Now</button>
+    </div>
+  );
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
