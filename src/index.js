@@ -83,7 +83,7 @@ function Menu() {
 
   return (
     <>
-      <p style={{ fontWeight: "bold" }}>
+      <p style={{ fontWeight: "bold", fontSize: "12px" }}>
         Authentic Italian cuidine. 6 Creative dishes to choose form. All from
         our stone oven, all organic, all delicious
       </p>
