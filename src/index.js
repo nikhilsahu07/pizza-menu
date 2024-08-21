@@ -82,22 +82,28 @@ function Menu() {
   const pizzaNum = pizzas.length;
 
   return (
-    <main className="menu">
-      <h2>Our Menu</h2>
-      {pizzaNum > 0 ? (
-        <ul className="pizzas">
-          {pizzas.map((pizza) => (
-            <Pizza pizzaObj={pizza} key={pizza.name} />
-          ))}
-        </ul>
-      ) : (
-        <p>
-          We're currently working on the menu. We'll be serving online very
-          soon. :)
-        </p>
-      )}
+    <>
+      <p style={{ fontWeight: "bold" }}>
+        Authentic Italian cuidine. 6 Creative dishes to choose form. All from
+        our stone oven, all organic, all delicious
+      </p>
 
-      {/* <Pizza
+      <main className="menu">
+        <h2>Our Menu</h2>
+        {pizzaNum > 0 ? (
+          <ul className="pizzas">
+            {pizzas.map((pizza) => (
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))}
+          </ul>
+        ) : (
+          <p>
+            We're currently working on the menu. We'll be serving online very
+            soon. :)
+          </p>
+        )}
+
+        {/* <Pizza
       //   name={pizza.name}
       //   ingredients={pizza.ingredients}
       //   photoName={pizza.photoName}
@@ -105,7 +111,7 @@ function Menu() {
       //   soldOut={pizza.soldOut}
       // /> */}
 
-      {/*<Pizza
+        {/*<Pizza
         name="Pizza Spinaci"
         photoName="pizzas/spinaci.jpg"
         ingredients="Tomato, mozarella, spinach, and ricotta cheese"
@@ -118,19 +124,22 @@ function Menu() {
         photoName="pizzas/funghi.jpg"
         ingredients="Tomato, mozarella, mushrooms, and onion"
       />*/}
-    </main>
+      </main>
+    </>
   );
 }
 
 function Pizza({ pizzaObj }) {
-  if (pizzaObj.soldOut) return null;
+  // if (pizzaObj.soldOut) return null;
 
   return (
-    <li className="pizza">
+    <li className={`pizza ${pizzaObj.soldOut && "sold-out"}`}>
       <h3>{pizzaObj.name}</h3>
       <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <p>{pizzaObj.ingredients}</p>
-      <span className="price">${pizzaObj.price}</span>
+      <span className="price">
+        {pizzaObj.soldOut ? `SOLD OUT` : `$${pizzaObj.price}`}
+      </span>
     </li>
   );
 }
